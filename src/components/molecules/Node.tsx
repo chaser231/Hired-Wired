@@ -1,37 +1,49 @@
 "use client";
 
-import { Icon } from "@/components/atoms";
+import { Icon, NodeConnector } from "@/components/atoms";
 
 interface NodeProps {
   title: string;
   subtitle: string;
+  hasInput?: boolean;
+  hasOutput?: boolean;
   className?: string;
 }
 
 export function Node({
   title,
   subtitle,
+  hasInput = true,
+  hasOutput = true,
   className = "",
 }: NodeProps) {
   return (
-    <div className={`flex flex-col gap-[24px] p-[14px] bg-pink-soft rounded-md ${className}`}>
-      <div className="flex flex-col gap-[14px]">
-        <div className="flex justify-between items-start gap-[8px]">
-          <Icon type="play" size={16} />
-          <Icon type="more" size={16} />
-        </div>
-        <div className="flex flex-col gap-[8px]">
-          <span className="text-bold">{title}</span>
-          <span className="text-pixel">{subtitle}</span>
-        </div>
+    <div className={`relative flex flex-col gap-[24px] p-[14px] bg-pink-soft rounded-lg ${className}`}>
+      {/* Header row with icons */}
+      <div className="flex justify-between items-start">
+        <Icon type="play" size={24} />
+        <Icon type="more" size={24} />
       </div>
-      {/* Connection dots */}
-      <div className="flex justify-between gap-[6px]">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div key={i} className="w-[10px] h-[10px] rounded-full bg-gray-400" />
-        ))}
+      
+      {/* Content */}
+      <div className="flex flex-col gap-[8px]">
+        <span className="text-h3">{title}</span>
+        <span className="text-pixel">{subtitle}</span>
+      </div>
+      
+      {/* Connection points - In (left) and Out (right) */}
+      <div className="flex justify-between items-center">
+        {hasInput ? (
+          <NodeConnector type="in" size={12} />
+        ) : (
+          <div className="w-[12px]" />
+        )}
+        {hasOutput ? (
+          <NodeConnector type="out" size={12} />
+        ) : (
+          <div className="w-[12px]" />
+        )}
       </div>
     </div>
   );
 }
-

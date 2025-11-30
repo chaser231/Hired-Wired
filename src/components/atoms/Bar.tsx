@@ -1,8 +1,10 @@
 "use client";
 
+type BarVariant = "default" | "big" | "double";
+
 interface BarProps {
   progress?: number; // 0-100
-  variant?: "default" | "big";
+  variant?: BarVariant;
   className?: string;
 }
 
@@ -13,12 +15,44 @@ export function Bar({
 }: BarProps) {
   const clampedProgress = Math.min(100, Math.max(0, progress));
   
-  // Размеры кружков и количество в зависимости от варианта
+  // Двухполосный вариант
+  if (variant === "double") {
+    const dotsPerRow = 60;
+    const dotSize = 6;
+    const gap = 3;
+    const filledDots = Math.round((clampedProgress / 100) * dotsPerRow);
+    
+    const renderRow = () => (
+      <div className="flex items-center" style={{ gap: `${gap}px` }}>
+        {Array.from({ length: dotsPerRow }).map((_, index) => (
+          <div
+            key={index}
+            className={`rounded-full flex-shrink-0 transition-colors duration-200 ${
+              index < filledDots 
+                ? "bg-green" 
+                : "bg-mint"
+            }`}
+            style={{ 
+              width: `${dotSize}px`, 
+              height: `${dotSize}px`
+            }}
+          />
+        ))}
+      </div>
+    );
+
+    return (
+      <div className={`flex flex-col ${className}`} style={{ gap: `${gap}px` }}>
+        {renderRow()}
+        {renderRow()}
+      </div>
+    );
+  }
+  
+  // Стандартные варианты (default / big)
   const dotSize = variant === "big" ? 8 : 5;
   const gap = variant === "big" ? 3 : 2;
   const totalDots = variant === "big" ? 60 : 80;
-  
-  // Количество заполненных кружков
   const filledDots = Math.round((clampedProgress / 100) * totalDots);
 
   return (

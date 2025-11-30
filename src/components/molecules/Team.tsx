@@ -27,13 +27,13 @@ export function Team({
         <span className="text-pixel">{peopleCount} people</span>
       </div>
 
-      {/* Productivity */}
+      {/* Productivity with double progress bar */}
       <div className="flex flex-col gap-[8px]">
         <div className="flex justify-between">
           <span className="text-caps text-gray-400">Productivity</span>
           <span className="text-caps">{productivity}%</span>
         </div>
-        <Bar progress={productivity} />
+        <Bar progress={productivity} variant="double" />
       </div>
 
       {/* Highlight */}
@@ -54,4 +54,3 @@ export function Team({
     </div>
   );
 }
-

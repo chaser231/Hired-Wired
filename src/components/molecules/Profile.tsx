@@ -19,7 +19,7 @@ export function Profile({
   variant = "long",
   name,
   role,
-  avatarSrc = "/assets/type=katya.png",
+  avatarSrc = "/assets/avatar-katya.png",
   statusType = "green",
   statusLabel,
   progress = 75,

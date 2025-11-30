@@ -16,6 +16,7 @@ import {
   Graph,
   Error,
   Avatars,
+  NodeConnector,
 } from "@/components/atoms";
 import {
   Profile,
@@ -240,29 +241,57 @@ export default function SandboxPage() {
           {/* Bar / Graph */}
           <div className="mb-12">
             <h3 className="text-h3 mb-6">Bar / Graph</h3>
+            {/* Single row bars on dark bg */}
             <div className="p-6 bg-gray-400 rounded-lg space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-col gap-2">
-                  <span className="text-caps text-white">Progress 100%</span>
+                  <span className="text-caps text-white">Default 100%</span>
                   <Bar progress={100} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-caps text-white">Progress 75%</span>
+                  <span className="text-caps text-white">Default 75%</span>
                   <Bar progress={75} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-caps text-white">Progress 50% (Big)</span>
+                  <span className="text-caps text-white">Big 50%</span>
                   <Bar variant="big" progress={50} />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <span className="text-caps text-white">Progress 20%</span>
-                  <Bar progress={20} />
                 </div>
               </div>
             </div>
+            {/* Double row bar */}
+            <div className="mt-6 p-6 bg-white rounded-lg space-y-4">
+              <span className="text-caps text-gray-500 block">Double (Green/Mint)</span>
+              <Bar variant="double" progress={91} />
+              <Bar variant="double" progress={50} />
+              <Bar variant="double" progress={25} />
+            </div>
+            {/* Graph */}
             <div className="mt-6 p-6 bg-white rounded-lg">
               <span className="text-caps text-gray-500 block mb-4">Graph</span>
               <Graph values={[80, 50]} />
+            </div>
+          </div>
+
+          {/* Node Connector */}
+          <div className="mb-12">
+            <h3 className="text-h3 mb-6">Node Connector</h3>
+            <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
+              <div className="flex flex-col gap-2 items-center">
+                <NodeConnector type="in" />
+                <span className="text-caps text-gray-500">In (Gray)</span>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <NodeConnector type="out" />
+                <span className="text-caps text-gray-500">Out (Black)</span>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <NodeConnector type="in" size={16} />
+                <span className="text-caps text-gray-500">In Large</span>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <NodeConnector type="out" size={16} />
+                <span className="text-caps text-gray-500">Out Large</span>
+              </div>
             </div>
           </div>
 
@@ -331,6 +360,7 @@ export default function SandboxPage() {
                 variant="long"
                 name="Michael Lee"
                 role="senior frontend developer"
+                avatarSrc="/assets/avatar-katya.png"
                 statusType="green"
                 progress={75}
               />
@@ -339,11 +369,13 @@ export default function SandboxPage() {
                   variant="short"
                   name="Michael Lee"
                   role="senior frontend developer"
+                  avatarSrc="/assets/avatar-petya.png"
                 />
                 <Profile 
                   variant="short-outlined"
                   name="Anna Smith"
                   role="product manager"
+                  avatarSrc="/assets/avatar-dog.png"
                 />
               </div>
             </div>
@@ -352,8 +384,25 @@ export default function SandboxPage() {
           {/* Node */}
           <div className="mb-12">
             <h3 className="text-h3 mb-6">Node</h3>
-            <div className="p-6 bg-white rounded-lg">
-              <Node title="Starting point" subtitle="more info" />
+            <div className="p-6 bg-white rounded-lg flex gap-6">
+              <Node 
+                title="Start Trigger" 
+                subtitle="new application received" 
+                hasInput={true}
+                hasOutput={true}
+              />
+              <Node 
+                title="Send Email" 
+                subtitle="welcome message" 
+                hasInput={true}
+                hasOutput={true}
+              />
+              <Node 
+                title="End" 
+                subtitle="flow complete" 
+                hasInput={true}
+                hasOutput={false}
+              />
             </div>
           </div>
 

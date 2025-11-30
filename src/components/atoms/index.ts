@@ -12,3 +12,4 @@ export { Bar } from "./Bar";
 export { Graph } from "./Graph";
 export { Error } from "./Error";
 export { Avatars } from "./Avatars";
+export { NodeConnector } from "./NodeConnector";
