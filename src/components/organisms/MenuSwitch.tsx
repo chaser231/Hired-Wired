@@ -18,11 +18,13 @@ export function MenuSwitch({
       type="button"
       onClick={onClick}
       className={`
-        px-[14px] py-[8px]
-        text-pixel text-black
-        border-b-2
+        px-[10px] py-[10px]
+        h-[32px]
+        flex items-center justify-center
+        text-grotesk text-black
+        rounded-sm
         transition-colors
-        ${active ? "border-black" : "border-transparent hover:border-gray-200"}
+        ${active ? "border border-white" : "border border-transparent hover:bg-white/10"}
         ${className}
       `}
     >
@@ -30,4 +32,3 @@ export function MenuSwitch({
     </button>
   );
 }
-

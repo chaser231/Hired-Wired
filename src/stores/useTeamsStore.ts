@@ -73,6 +73,20 @@ const mockTeams: Team[] = [
     ],
     memberIds: ["emp-14", "emp-15", "emp-16"],
   },
+  {
+    id: "team-6",
+    name: "Support",
+    description: "Customer success and technical support",
+    peopleCount: 15,
+    productivity: 88,
+    highlight: "Reduced average response time by 40%",
+    avatars: [
+      { src: "/assets/avatar-katya.png" },
+      { src: "/assets/avatar-dog.png" },
+      { src: "/assets/avatar-petya.png" },
+    ],
+    memberIds: ["emp-17", "emp-18", "emp-19", "emp-20"],
+  },
 ];
 
 // ============= Store Interface =============

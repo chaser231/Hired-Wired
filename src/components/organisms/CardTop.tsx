@@ -46,13 +46,12 @@ export function CardTop({
   accessOptions = [
     { label: "Access LEVEL 4 (CODE RED)", value: "level4" },
   ],
-  tabs = ["Team", "Team", "Team"],
+  tabs = ["Overview", "Employees", "Report"],
   activeTab = 0,
   onTabChange,
   className = "",
 }: CardTopProps) {
   const [currentTab, setCurrentTab] = useState(activeTab);
-  const bgColor = variant === "yellow" ? "bg-yellow" : "bg-gray-200";
 
   const handleTabChange = (index: number) => {
     setCurrentTab(index);
@@ -60,30 +59,47 @@ export function CardTop({
   };
 
   return (
-    <div className={`relative overflow-hidden rounded-lg ${bgColor} ${className}`}>
-      {/* Cover Image */}
+    <div 
+      className={`relative overflow-hidden rounded-lg w-[830px] h-[480px] ${className}`}
+      style={{ backgroundColor: variant === "yellow" ? "#FFE900" : "#EAEAEA" }}
+    >
+      {/* Cover Image Background */}
       <div className="absolute inset-0">
         <Image
           src={coverImage}
           alt="Cover"
           fill
-          className="object-cover mix-blend-multiply opacity-50"
+          className="object-cover"
+          style={{ 
+            mixBlendMode: variant === "gray" ? "normal" : "multiply",
+            opacity: variant === "gray" ? 1 : 0.5 
+          }}
+          priority
         />
+        {/* Gradient overlay for gray variant */}
+        {variant === "gray" && (
+          <div 
+            className="absolute inset-0" 
+            style={{ 
+              background: "linear-gradient(180deg, rgba(242, 242, 242, 0) 0%, rgba(242, 242, 242, 1) 100%)" 
+            }} 
+          />
+        )}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 p-[30px] min-h-[480px] flex flex-col">
+      <div className="relative z-10 p-[30px] h-full flex flex-col justify-end items-center gap-[160px]">
         {/* Yellow variant header with labels */}
         {variant === "yellow" && (
-          <div className="flex justify-between mb-auto">
+          <div className="absolute top-[30px] left-[30px] right-[30px] flex justify-between">
             <span className="text-pixel text-gold">{teamsLabel}</span>
             <span className="text-pixel text-gold">{accessLabel}</span>
           </div>
         )}
 
         {/* Centered content */}
-        <div className="flex-1 flex flex-col items-center justify-center gap-[30px]">
-          <div className="flex flex-col items-center gap-[30px]">
+        <div className="flex flex-col items-center gap-[30px] w-full max-w-[754px]">
+          <div className="flex flex-col items-center gap-[30px] w-full">
             <h1 className="text-h1 text-center">{name}</h1>
             <p className="text-description text-center">{role}</p>
           </div>
@@ -94,7 +110,7 @@ export function CardTop({
               {actions.map((action, index) => (
                 <Button 
                   key={index}
-                  variant="on-color"
+                  variant={variant === "gray" ? "cta-small" : "on-color"}
                   onClick={action.onClick}
                 >
                   {action.label}
@@ -107,7 +123,7 @@ export function CardTop({
         {/* Bottom controls */}
         {variant === "yellow" ? (
           // Yellow variant - dropdowns
-          <div className="flex justify-between items-end mt-auto">
+          <div className="flex justify-between items-end w-full">
             <div className="flex flex-wrap gap-[2px] max-w-[310px]">
               {teamOptions.map((option, index) => (
                 <Dropdown
@@ -133,17 +149,15 @@ export function CardTop({
           </div>
         ) : (
           // Gray variant - switch tabs
-          <div className="flex justify-center mt-auto">
-            <div className="flex gap-[2px] p-[4px] bg-yellow rounded-md">
-              {tabs.map((tab, index) => (
-                <Switch
-                  key={index}
-                  checked={currentTab === index}
-                  onChange={() => handleTabChange(index)}
-                  label={tab}
-                />
-              ))}
-            </div>
+          <div className="flex gap-[2px] p-[4px] bg-yellow rounded-md">
+            {tabs.map((tab, index) => (
+              <Switch
+                key={index}
+                checked={currentTab === index}
+                onChange={() => handleTabChange(index)}
+                label={tab}
+              />
+            ))}
           </div>
         )}
       </div>
