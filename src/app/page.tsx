@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { TopMenu, MenuSwitch } from "@/components/organisms";
 import { CardMetric, Team } from "@/components/molecules";
 import { useTeamsStore } from "@/stores";
@@ -8,6 +9,7 @@ import { useTeamsStore } from "@/stores";
 type TabType = "teams" | "templates";
 
 export default function AllTeamsPage() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>("teams");
   const teams = useTeamsStore((state) => state.teams);
 
@@ -101,6 +103,7 @@ export default function AllTeamsPage() {
                     productivity={team.productivity}
                     highlight={team.highlight}
                     avatars={team.avatars}
+                    onClick={() => router.push(`/team/${team.id}`)}
                   />
                 ))}
               </div>

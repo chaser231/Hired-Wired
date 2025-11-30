@@ -8,6 +8,7 @@ interface TeamProps {
   productivity: number;
   highlight?: string;
   avatars?: { src: string }[];
+  onClick?: () => void;
   className?: string;
 }
 
@@ -17,10 +18,14 @@ export function Team({
   productivity,
   highlight,
   avatars,
+  onClick,
   className = "",
 }: TeamProps) {
   return (
-    <div className={`flex flex-col gap-[24px] p-[30px] bg-white rounded-lg ${className}`}>
+    <div 
+      onClick={onClick}
+      className={`flex flex-col gap-[24px] p-[30px] bg-white rounded-lg ${onClick ? "cursor-pointer hover:shadow-md transition-shadow" : ""} ${className}`}
+    >
       {/* Header */}
       <div className="flex justify-between items-end">
         <span className="text-h3">{name}</span>

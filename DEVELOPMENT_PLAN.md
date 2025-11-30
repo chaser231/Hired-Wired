@@ -95,12 +95,12 @@
 - [x] Teams grid (team cards)
 - [x] **Git Commit:** `feat(pages): create all teams page`
 
-### 6.2 Team Detail Page (`/team/[id]`)
-- [ ] Header with breadcrumbs
-- [ ] Team hero card (name, description, status)
-- [ ] Members list (profile rows with progress bars)
-- [ ] Metrics section
-- [ ] **Git Commit:** `feat(pages): create team detail page`
+### 6.2 Team Detail Page (`/team/[id]`) ✅
+- [x] Header with breadcrumbs
+- [x] Team hero card (name, description, status)
+- [x] Members list (profile rows with progress bars)
+- [x] Metrics section
+- [x] **Git Commit:** `feat(pages): create team detail page`
 
 ### 6.3 Candidate Profile Page (`/candidate/[id]`)
 - [ ] Card Top hero (name, role badges, action buttons)
