@@ -1,8 +1,28 @@
 "use client";
 
-import { Button } from "@/components/atoms/Button";
+import { useState } from "react";
+import {
+  Button,
+  Avatar,
+  Status,
+  Icon,
+  Switch,
+  Flag,
+  Tag,
+  Input,
+  TextArea,
+  Dropdown,
+  Bar,
+  Graph,
+  Error,
+  Avatars,
+} from "@/components/atoms";
 
 export default function SandboxPage() {
+  const [switchOn, setSwitchOn] = useState(true);
+  const [flagChecked, setFlagChecked] = useState(false);
+  const [dropdownValue, setDropdownValue] = useState("");
+
   return (
     <div className="min-h-screen p-8 bg-gray-100">
       <header className="mb-12">
@@ -28,6 +48,145 @@ export default function SandboxPage() {
           </div>
         </div>
 
+        {/* Avatar & Avatars */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Avatar / Avatars</h3>
+          <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
+            <div className="flex flex-col gap-2 items-center">
+              <Avatar src="/assets/type=katya.png" />
+              <span className="text-caps text-gray-500">Single</span>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Avatar src="/assets/type=petya.png" />
+              <span className="text-caps text-gray-500">Petya</span>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Avatar src="/assets/type=dog.png" />
+              <span className="text-caps text-gray-500">Dog</span>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Avatars />
+              <span className="text-caps text-gray-500">Stacked</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Status */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Status</h3>
+          <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
+            <Status type="green" />
+            <Status type="red" />
+            <Status type="purple" />
+            <Status type="stopped" />
+          </div>
+        </div>
+
+        {/* Icons */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Icons</h3>
+          <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
+            <div className="flex flex-col gap-2 items-center">
+              <Icon type="play" />
+              <span className="text-caps text-gray-500">Play</span>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Icon type="more" />
+              <span className="text-caps text-gray-500">More</span>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Icon type="arrow-down" />
+              <span className="text-caps text-gray-500">Arrow</span>
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Icon type="close" />
+              <span className="text-caps text-gray-500">Close</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Switch & Flag */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Switch / Flag</h3>
+          <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
+            <div className="flex gap-1 p-1 bg-yellow rounded-md">
+              <Switch checked={switchOn} onChange={setSwitchOn} label="Team" />
+              <Switch checked={!switchOn} onChange={() => setSwitchOn(false)} label="Projects" />
+            </div>
+            <div className="flex flex-col gap-2 items-center">
+              <Flag checked={flagChecked} onChange={setFlagChecked} />
+              <span className="text-caps text-gray-500">{flagChecked ? "Yes" : "No"}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Tags */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Tag</h3>
+          <div className="flex flex-wrap gap-4 items-center p-6 bg-white rounded-lg">
+            <Tag variant="static">React</Tag>
+            <Tag variant="static">Node.js</Tag>
+            <Tag variant="control" onRemove={() => console.log("remove")}>TypeScript</Tag>
+          </div>
+        </div>
+
+        {/* Input / TextArea */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Input / TextArea</h3>
+          <div className="grid grid-cols-2 gap-8 p-6 bg-white rounded-lg">
+            <Input label="HEAD LINE" placeholder="Michael Lee" />
+            <TextArea label="HEAD LINE" placeholder="type something here" />
+          </div>
+        </div>
+
+        {/* Dropdown */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Dropdown</h3>
+          <div className="grid grid-cols-3 gap-8 p-6 bg-white rounded-lg">
+            <Dropdown 
+              label="HEAD LINE" 
+              value={dropdownValue}
+              placeholder="frontend-team"
+              options={["frontend-team", "backend-team", "design-team"]}
+              onChange={setDropdownValue}
+            />
+            <Dropdown 
+              variant="on-color"
+              label="HEAD LINE" 
+              value="frontend-team"
+              options={["frontend-team", "backend-team"]}
+            />
+            <Dropdown 
+              label="EMPTY" 
+              placeholder="Select..."
+              options={["Option 1", "Option 2"]}
+            />
+          </div>
+        </div>
+
+        {/* Bar / Graph */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Bar / Graph</h3>
+          <div className="grid grid-cols-2 gap-8 p-6 bg-white rounded-lg">
+            <div className="space-y-4">
+              <Bar progress={75} />
+              <Bar progress={20} />
+              <Bar variant="big" progress={50} />
+            </div>
+            <div>
+              <Graph values={[80, 50]} />
+            </div>
+          </div>
+        </div>
+
+        {/* Error */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Error</h3>
+          <div className="p-6 bg-white rounded-lg">
+            <Error message="add more money for salary, you dumb ass" />
+          </div>
+        </div>
+
         {/* Typography Preview */}
         <div className="mb-12">
           <h3 className="text-h3 mb-6">Typography</h3>
@@ -49,17 +208,14 @@ export default function SandboxPage() {
           <h3 className="text-h3 mb-6">Colors</h3>
           <div className="p-6 bg-white rounded-lg">
             <div className="grid grid-cols-6 gap-4">
-              {/* Base */}
               <ColorSwatch color="bg-black" name="Black" />
               <ColorSwatch color="bg-white border" name="White" />
               <ColorSwatch color="bg-gray-100" name="Gray 100" />
               <ColorSwatch color="bg-gray-200" name="Gray 200" />
               <ColorSwatch color="bg-gray-400" name="Gray 400" />
               <ColorSwatch color="bg-gray-500" name="Gray 500" />
-              {/* Accent */}
               <ColorSwatch color="bg-yellow" name="Yellow" />
               <ColorSwatch color="bg-gold" name="Gold" />
-              {/* Pastels */}
               <ColorSwatch color="bg-pink-soft" name="Pink Soft" />
               <ColorSwatch color="bg-pink" name="Pink" />
               <ColorSwatch color="bg-lavender" name="Lavender" />
@@ -68,7 +224,6 @@ export default function SandboxPage() {
               <ColorSwatch color="bg-peach" name="Peach" />
               <ColorSwatch color="bg-lemon" name="Lemon" />
               <ColorSwatch color="bg-error-bg" name="Error BG" />
-              {/* Status */}
               <ColorSwatch color="bg-green" name="Green" />
               <ColorSwatch color="bg-red" name="Red" />
               <ColorSwatch color="bg-purple" name="Purple" />
@@ -104,4 +259,3 @@ function ColorSwatch({ color, name }: { color: string; name: string }) {
     </div>
   );
 }
-

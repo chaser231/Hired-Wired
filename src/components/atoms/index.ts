@@ -1,2 +1,14 @@
 export { Button } from "./Button";
-
+export { Avatar } from "./Avatar";
+export { Status } from "./Status";
+export { Icon } from "./Icon";
+export { Switch } from "./Switch";
+export { Flag } from "./Flag";
+export { Tag } from "./Tag";
+export { Input } from "./Input";
+export { TextArea } from "./TextArea";
+export { Dropdown } from "./Dropdown";
+export { Bar } from "./Bar";
+export { Graph } from "./Graph";
+export { Error } from "./Error";
+export { Avatars } from "./Avatars";
