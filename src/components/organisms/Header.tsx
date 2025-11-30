@@ -1,5 +1,6 @@
 "use client";
 
+import { Bar } from "@/components/atoms";
 import { TopMenu } from "./TopMenu";
 import { SecondRow } from "./SecondRow";
 
@@ -32,6 +33,13 @@ export function Header({
   onDeploy,
   className = "",
 }: HeaderProps) {
+  // Calculate progress percentage from stages
+  const completedStages = stages.filter(s => s.completed).length;
+  const activeStageIndex = stages.findIndex(s => s.active);
+  const progressPercent = stages.length > 0 
+    ? ((completedStages + (activeStageIndex >= 0 ? 0.5 : 0)) / stages.length) * 100 
+    : 0;
+
   return (
     <header className={`bg-white ${className}`}>
       <div className="px-[30px]">
@@ -44,22 +52,13 @@ export function Header({
           onDeploy={onDeploy}
         />
         
-        {/* Progress Stages */}
+        {/* Progress Stages with dot-based bar */}
         {stages.length > 0 && (
-          <div className="flex gap-[2px] py-[14px] border-t border-gray-200">
-            {stages.map((stage, index) => (
-              <div 
-                key={index}
-                className={`
-                  flex-1 h-[4px] rounded-full
-                  ${stage.completed ? "bg-black" : stage.active ? "bg-yellow" : "bg-gray-200"}
-                `}
-              />
-            ))}
+          <div className="py-[14px] border-t border-gray-200">
+            <Bar variant="double" progress={progressPercent} />
           </div>
         )}
       </div>
     </header>
   );
 }
-

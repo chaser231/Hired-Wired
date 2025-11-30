@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, Avatar, Switch } from "@/components/atoms";
+import { Button, Avatar } from "@/components/atoms";
+import { MenuSwitch } from "./MenuSwitch";
 import { useState } from "react";
 
 interface TopMenuProps {
@@ -32,16 +33,16 @@ export function TopMenu({
         <span className="text-h2 italic">Hired & Wired</span>
         
         {/* Menu Switches */}
-        <div className="flex gap-1 p-1 bg-yellow rounded-md">
-          <Switch 
-            checked={currentTab === "team"} 
-            onChange={() => handleTabChange("team")} 
+        <div className="flex">
+          <MenuSwitch 
             label="Team" 
+            active={currentTab === "team"}
+            onClick={() => handleTabChange("team")}
           />
-          <Switch 
-            checked={currentTab === "projects"} 
-            onChange={() => handleTabChange("projects")} 
+          <MenuSwitch 
             label="Projects" 
+            active={currentTab === "projects"}
+            onClick={() => handleTabChange("projects")}
           />
         </div>
       </div>
@@ -52,7 +53,7 @@ export function TopMenu({
           Generate report
         </Button>
         <div className="flex items-center gap-[8px]">
-          <Avatar src="/assets/type=katya.png" size={30} />
+          <Avatar src="/assets/avatar-katya.png" size={30} />
           <button 
             onClick={onLogout}
             className="text-pixel text-gray-500 hover:text-black transition-colors"
@@ -64,4 +65,3 @@ export function TopMenu({
     </nav>
   );
 }
-

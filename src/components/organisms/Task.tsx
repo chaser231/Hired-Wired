@@ -22,16 +22,17 @@ export function Task({
   className = "",
 }: TaskProps) {
   return (
-    <div className={`flex items-center gap-[14px] py-[14px] border-b border-gray-200 ${className}`}>
+    <div className={`flex items-start gap-[14px] py-[14px] border-b border-gray-200 ${className}`}>
       <Flag checked={completed} onChange={onToggle} />
-      <span className={`text-h3 flex-1 ${completed ? "line-through text-gray-400" : ""}`}>
-        {title}
-      </span>
-      {error && <Error message={error} />}
-      <Button variant="secondary" onClick={onAction}>
-        {actionLabel}
-      </Button>
+      <div className="flex flex-col gap-[8px] flex-1">
+        <span className={`text-h3 ${completed ? "line-through text-gray-400" : ""}`}>
+          {title}
+        </span>
+        {error && <Error message={error} />}
+        <Button variant="secondary" onClick={onAction}>
+          {actionLabel}
+        </Button>
+      </div>
     </div>
   );
 }
-

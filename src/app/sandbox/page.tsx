@@ -588,33 +588,49 @@ export default function SandboxPage() {
             <div className="grid grid-cols-2 gap-6">
               <CardTop 
                 variant="yellow"
-                name="Michael Lee"
-                role="Senior Frontend Developer"
+                name="Sarah Mitchell"
+                role="Senior Software Engineer"
                 actions={[
                   { label: "Promote" },
                   { label: "Negotiate" },
                   { label: "Suspend" },
+                  { label: "Fire" },
+                ]}
+                teamOptions={[
+                  { label: "frontend-team", value: "frontend" },
+                  { label: "Innovation Lab", value: "innovation" },
+                  { label: "Lead Developer", value: "lead" },
+                  { label: "Member", value: "member" },
+                ]}
+                accessOptions={[
+                  { label: "Access LEVEL 4 (CODE RED)", value: "level4" },
                 ]}
               />
               <CardTop 
                 variant="gray"
-                name="Anna Smith"
-                role="Product Manager"
+                name="Sarah Mitchell"
+                role="Senior Software Engineer"
                 coverImage="/assets/Cover Image-1.jpg"
                 actions={[
-                  { label: "View Profile" },
+                  { label: "Promote" },
+                  { label: "Negotiate" },
+                  { label: "Suspend" },
+                  { label: "Fire" },
                 ]}
+                tabs={["Team", "Team", "Team"]}
               />
             </div>
           </div>
 
           {/* Kanban */}
           <div className="mb-12">
-            <h3 className="text-h3 mb-6">Kanban</h3>
+            <h3 className="text-h3 mb-6">Kanban (Drag & Drop)</h3>
+            <p className="text-grotesk text-gray-500 mb-4">Перетащите карточки между колонками</p>
             <div className="p-6 bg-white rounded-lg">
               <Kanban 
                 columns={mockKanbanColumns}
                 onCardClick={(id) => console.log("Card clicked:", id)}
+                onCardMove={(cardId, from, to) => console.log(`Card ${cardId} moved from ${from} to ${to}`)}
               />
             </div>
           </div>
