@@ -1,20 +1,30 @@
 "use client";
 
-import { TextareaHTMLAttributes, forwardRef } from "react";
+import { TextareaHTMLAttributes, forwardRef, useId } from "react";
 
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ label, className = "", ...props }, ref) => {
+  ({ label, className = "", id: providedId, ...props }, ref) => {
+    const generatedId = useId();
+    const textareaId = providedId || generatedId;
+    
     return (
       <div className="flex flex-col gap-[8px]">
         {label && (
-          <label className="text-caps text-black">{label}</label>
+          <label 
+            htmlFor={textareaId}
+            className="text-caps text-black cursor-pointer"
+          >
+            {label}
+          </label>
         )}
         <textarea
           ref={ref}
+          id={textareaId}
+          aria-label={!label ? props.placeholder : undefined}
           className={`
             w-full
             px-[14px] py-[8px]
@@ -23,8 +33,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             text-pixel text-black
             placeholder:text-gray-500
             outline-none
-            focus:ring-1 focus:ring-black
-            transition-shadow
+            focus:ring-2 focus:ring-yellow focus:ring-offset-1
+            transition-all duration-200
             resize-none
             min-h-[66px]
             ${className}
