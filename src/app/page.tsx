@@ -34,6 +34,10 @@ export default function AllTeamsPage() {
                 active={activeTab === "templates"}
                 onClick={() => setActiveTab("templates")}
               />
+              <MenuSwitch 
+                label="Campaigns" 
+                onClick={() => router.push("/campaigns")}
+              />
             </div>
           </div>
 

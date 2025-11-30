@@ -109,12 +109,13 @@
 - [x] Reports to / Mentoring sections (avatar chips)
 - [x] **Git Commit:** `feat(pages): create candidate profile page`
 
-### 6.4 Hiring Campaign Page (`/campaign/[id]`)
-- [ ] Hero card (title, status, funnel stats)
-- [ ] Task list (checklist with flags)
-- [ ] Stats row (Applications, In Progress, Conversion Rate)
-- [ ] Pipeline Kanban (columns with profile cards)
-- [ ] **Git Commit:** `feat(pages): create hiring campaign page`
+### 6.4 Hiring Campaign Page (`/campaign/[id]`) ✅
+- [x] Hero card (title, status, funnel stats)
+- [x] Task list (checklist with flags)
+- [x] Stats row (Applications, In Progress, Conversion Rate)
+- [x] Pipeline Kanban (columns with profile cards)
+- [x] Campaigns list page (`/campaigns`)
+- [x] **Git Commit:** `feat(pages): create hiring campaign page`
 
 ### 6.5 Automation/Mail Editor Page (`/automation`)
 - [ ] Header with builder variant (Back + Save + Deploy)
