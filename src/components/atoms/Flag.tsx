@@ -25,7 +25,7 @@ export function Flag({
       `}
     >
       <Image
-        src={checked ? "/assets/Property 1=yes.png" : "/assets/Property 1=no.png"}
+        src={checked ? "/assets/flag-yes.png" : "/assets/flag-no.png"}
         alt={checked ? "Checked" : "Unchecked"}
         width={22}
         height={14}

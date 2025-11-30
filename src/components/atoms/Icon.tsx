@@ -9,10 +9,10 @@ interface IconProps {
 }
 
 const iconPaths: Record<IconType, string> = {
-  play: "/assets/icons/icon-play.svg",
-  more: "/assets/icons/icon-more.svg",
-  "arrow-down": "/assets/icons/icon-arrow-down.svg",
-  close: "/assets/icons/icon-close.svg",
+  play: "/assets/icon-play.png",
+  more: "/assets/icon-more.png",
+  "arrow-down": "/assets/icon-arrow-down.png",
+  close: "/assets/icon-close.png",
 };
 
 export function Icon({ 

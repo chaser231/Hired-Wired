@@ -10,7 +10,7 @@ interface AvatarProps {
 }
 
 export function Avatar({ 
-  src = "/assets/type=katya.png", 
+  src = "/assets/avatar-katya.png", 
   alt = "Avatar", 
   size = 30,
   className = "" 

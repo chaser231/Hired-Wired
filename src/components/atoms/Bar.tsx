@@ -11,16 +11,35 @@ export function Bar({
   variant = "default",
   className = "" 
 }: BarProps) {
-  const height = variant === "big" ? "h-[12px]" : "h-[5px]";
   const clampedProgress = Math.min(100, Math.max(0, progress));
+  
+  // Размеры кружков и количество в зависимости от варианта
+  const dotSize = variant === "big" ? 8 : 5;
+  const gap = variant === "big" ? 3 : 2;
+  const totalDots = variant === "big" ? 60 : 80;
+  
+  // Количество заполненных кружков
+  const filledDots = Math.round((clampedProgress / 100) * totalDots);
 
   return (
-    <div className={`w-full ${height} bg-white rounded-sm overflow-hidden ${className}`}>
-      <div 
-        className="h-full bg-black rounded-sm transition-all duration-300"
-        style={{ width: `${clampedProgress}%` }}
-      />
+    <div 
+      className={`flex items-center ${className}`}
+      style={{ gap: `${gap}px` }}
+    >
+      {Array.from({ length: totalDots }).map((_, index) => (
+        <div
+          key={index}
+          className={`rounded-full flex-shrink-0 transition-colors duration-200 ${
+            index < filledDots 
+              ? "bg-white" 
+              : "bg-white/30"
+          }`}
+          style={{ 
+            width: `${dotSize}px`, 
+            height: `${dotSize}px`
+          }}
+        />
+      ))}
     </div>
   );
 }
-

@@ -17,9 +17,9 @@
 
 | Token | Font | Size | Weight | Line-Height | Letter-Spacing | Case |
 |-------|------|------|--------|-------------|----------------|------|
-| **H1** | Instrument Serif | 84px | 700 (Bold) | 0.9em (76px) | -1% | — |
-| **H2** | Instrument Serif | 40px | 600 (Semibold) | 0.9em (36px) | -1% | — |
-| **Description** | Pixform | 30px | 600 | 0.9em (27px) | -3% | UPPERCASE |
+| **H1** | Instrument Serif | 84px | 400 (Regular) | 0.9em (76px) | -1% | — |
+| **H2** | Instrument Serif | 40px | 400 (Regular) | 0.9em (36px) | -1% | — |
+| **Description** | Pixform | 30px | 400 (Regular) | 0.9em (27px) | -3% | UPPERCASE |
 | **H3** | Akkurat LL Cyrillic | 20px | 600 (Semibold) | 0.9em (18px) | -2% | — |
 | **H4** | Akkurat LL Cyrillic | 15px | 600 (Semibold) | 0.9em (14px) | -2% | — |
 | **text-pixel** | Pixform | 10px | 400 | 0.9em (9px) | 20% | UPPERCASE |

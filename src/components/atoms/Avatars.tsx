@@ -11,9 +11,9 @@ interface AvatarsProps {
 
 export function Avatars({ 
   avatars = [
-    { src: "/assets/type=katya.png" },
-    { src: "/assets/type=petya.png" },
-    { src: "/assets/type=dog.png" },
+    { src: "/assets/avatar-katya.png" },
+    { src: "/assets/avatar-petya.png" },
+    { src: "/assets/avatar-dog.png" },
   ],
   max = 3,
   size = 30,

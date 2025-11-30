@@ -108,15 +108,15 @@ export default function SandboxPage() {
             <h3 className="text-h3 mb-6">Avatar / Avatars</h3>
             <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
               <div className="flex flex-col gap-2 items-center">
-                <Avatar src="/assets/type=katya.png" />
+                <Avatar src="/assets/avatar-katya.png" />
                 <span className="text-caps text-gray-500">Katya</span>
               </div>
               <div className="flex flex-col gap-2 items-center">
-                <Avatar src="/assets/type=petya.png" />
+                <Avatar src="/assets/avatar-petya.png" />
                 <span className="text-caps text-gray-500">Petya</span>
               </div>
               <div className="flex flex-col gap-2 items-center">
-                <Avatar src="/assets/type=dog.png" />
+                <Avatar src="/assets/avatar-dog.png" />
                 <span className="text-caps text-gray-500">Dog</span>
               </div>
               <div className="flex flex-col gap-2 items-center">
@@ -179,9 +179,27 @@ export default function SandboxPage() {
           <div className="mb-12">
             <h3 className="text-h3 mb-6">Tag</h3>
             <div className="flex flex-wrap gap-4 items-center p-6 bg-white rounded-lg">
-              <Tag variant="static">React</Tag>
-              <Tag variant="static">Node.js</Tag>
-              <Tag variant="control" onRemove={() => console.log("remove")}>TypeScript</Tag>
+              <div className="flex flex-col gap-2">
+                <span className="text-caps text-gray-500">Static Default (32px)</span>
+                <div className="flex gap-2">
+                  <Tag variant="static">React</Tag>
+                  <Tag variant="static">Node.js</Tag>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-caps text-gray-500">Static Small (24px)</span>
+                <div className="flex gap-2">
+                  <Tag variant="static" size="sm">React</Tag>
+                  <Tag variant="static" size="sm">Node.js</Tag>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-caps text-gray-500">Control (24px)</span>
+                <div className="flex gap-2">
+                  <Tag variant="control" onRemove={() => console.log("remove")}>TypeScript</Tag>
+                  <Tag variant="control" onRemove={() => console.log("remove")}>AWS</Tag>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -222,15 +240,29 @@ export default function SandboxPage() {
           {/* Bar / Graph */}
           <div className="mb-12">
             <h3 className="text-h3 mb-6">Bar / Graph</h3>
-            <div className="grid grid-cols-2 gap-8 p-6 bg-white rounded-lg">
+            <div className="p-6 bg-gray-400 rounded-lg space-y-6">
               <div className="space-y-4">
-                <Bar progress={75} />
-                <Bar progress={20} />
-                <Bar variant="big" progress={50} />
+                <div className="flex flex-col gap-2">
+                  <span className="text-caps text-white">Progress 100%</span>
+                  <Bar progress={100} />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-caps text-white">Progress 75%</span>
+                  <Bar progress={75} />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-caps text-white">Progress 50% (Big)</span>
+                  <Bar variant="big" progress={50} />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-caps text-white">Progress 20%</span>
+                  <Bar progress={20} />
+                </div>
               </div>
-              <div>
-                <Graph values={[80, 50]} />
-              </div>
+            </div>
+            <div className="mt-6 p-6 bg-white rounded-lg">
+              <span className="text-caps text-gray-500 block mb-4">Graph</span>
+              <Graph values={[80, 50]} />
             </div>
           </div>
 

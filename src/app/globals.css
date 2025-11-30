@@ -97,29 +97,29 @@ body {
    TYPOGRAPHY UTILITIES
    ============================================ */
 
-/* H1 - Instrument Serif 84px Bold */
+/* H1 - Instrument Serif 84px Regular */
 .text-h1 {
   font-family: var(--font-serif), Georgia, serif;
   font-size: var(--text-h1);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 0.9;
   letter-spacing: -0.01em;
 }
 
-/* H2 - Instrument Serif 40px Semibold */
+/* H2 - Instrument Serif 40px Regular */
 .text-h2 {
   font-family: var(--font-serif), Georgia, serif;
   font-size: var(--text-h2);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 0.9;
   letter-spacing: -0.01em;
 }
 
-/* Description - Pixform 30px UPPERCASE */
+/* Description - Pixform 30px Regular UPPERCASE */
 .text-description {
   font-family: var(--font-pixel), monospace;
   font-size: var(--text-description);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 0.9;
   letter-spacing: -0.03em;
   text-transform: uppercase;
