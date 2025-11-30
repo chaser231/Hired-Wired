@@ -102,12 +102,12 @@
 - [x] Metrics section
 - [x] **Git Commit:** `feat(pages): create team detail page`
 
-### 6.3 Candidate Profile Page (`/candidate/[id]`)
-- [ ] Card Top hero (name, role badges, action buttons)
-- [ ] Achievements section (tags)
-- [ ] Personal Development section
-- [ ] Reports to / Mentoring sections (avatar chips)
-- [ ] **Git Commit:** `feat(pages): create candidate profile page`
+### 6.3 Candidate Profile Page (`/candidate/[id]`) ✅
+- [x] Card Top hero (name, role badges, action buttons)
+- [x] Achievements section (tags)
+- [x] Personal Development section
+- [x] Reports to / Mentoring sections (avatar chips)
+- [x] **Git Commit:** `feat(pages): create candidate profile page`
 
 ### 6.4 Hiring Campaign Page (`/campaign/[id]`)
 - [ ] Hero card (title, status, funnel stats)

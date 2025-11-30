@@ -169,6 +169,7 @@ export default function TeamDetailPage({ params }: TeamDetailPageProps) {
                   statusType={member.statusType}
                   statusLabel={member.statusLabel}
                   progress={member.progress}
+                  onClick={() => router.push(`/candidate/${member.id}`)}
                 />
               ))
             ) : (
