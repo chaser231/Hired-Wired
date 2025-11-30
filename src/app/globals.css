@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ============================================
+   HIRED & WIRED - Design System Tokens
+   ============================================ */
+
+@theme inline {
+  /* -----------------------------------------
+     FONTS
+     ----------------------------------------- */
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-pixel: var(--font-pixel);
+
+  /* -----------------------------------------
+     COLORS
+     ----------------------------------------- */
+  /* Base */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* Grays */
+  --color-gray-100: #F2F2F2;
+  --color-gray-200: #EAEAEA;
+  --color-gray-400: #CBCBCB;
+  --color-gray-500: #979797;
+
+  /* Accent */
+  --color-yellow: #FFE900;
+  --color-gold: #D1A63B;
+
+  /* Pastels */
+  --color-pink-soft: #F5CFCA;
+  --color-pink: #FAD5E7;
+  --color-lavender: #DDD6EF;
+  --color-mint: #D4EEE7;
+  --color-yellow-green: #E0E2A4;
+  --color-peach: #F5DEDB;
+  --color-lemon: #FFFD9E;
+  --color-error-bg: #F7E0DD;
+
+  /* Status */
+  --color-green: #00867B;
+  --color-red: #CC0000;
+  --color-purple: #9747FF;
+
+  /* -----------------------------------------
+     SPACING
+     ----------------------------------------- */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 14px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 30px;
+  --spacing-3xl: 90px;
+
+  /* -----------------------------------------
+     BORDER RADIUS
+     ----------------------------------------- */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 999px;
+
+  /* -----------------------------------------
+     TYPOGRAPHY SIZES
+     ----------------------------------------- */
+  --text-h1: 84px;
+  --text-h2: 40px;
+  --text-description: 30px;
+  --text-h3: 20px;
+  --text-h4: 15px;
+  --text-pixel: 10px;
+  --text-grotesk: 11px;
+  --text-caps: 8px;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+:root {
+  --background: var(--color-gray-100);
+  --foreground: var(--color-black);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+/* H1 - Instrument Serif 84px Bold */
+.text-h1 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+/* H2 - Instrument Serif 40px Semibold */
+.text-h2 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-h2);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+/* Description - Pixform 30px UPPERCASE */
+.text-description {
+  font-family: var(--font-pixel), monospace;
+  font-size: var(--text-description);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* H3 - Akkurat 20px Semibold */
+.text-h3 {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+/* H4 - Akkurat 15px Semibold */
+.text-h4 {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-h4);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+/* Text Pixel - Pixform 10px UPPERCASE */
+.text-pixel {
+  font-family: var(--font-pixel), monospace;
+  font-size: var(--text-pixel);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Text Grotesk - Akkurat 11px Regular */
+.text-grotesk {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-grotesk);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+/* Text Bold - Akkurat 11px Bold */
+.text-bold {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-grotesk);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+/* Caps - Akkurat 8px UPPERCASE */
+.text-caps {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-caps);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
