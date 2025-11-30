@@ -2,77 +2,78 @@
 
 ---
 
-## Phase 1: Foundation & Design Tokens
-- [ ] Initialize Next.js project (TypeScript, Tailwind, ESLint)
-- [ ] **Config:** Setup `tailwind.config.ts` with custom tokens:
+## Phase 1: Foundation & Design Tokens ✅
+- [x] Initialize Next.js project (TypeScript, Tailwind, ESLint)
+- [x] **Config:** Setup `tailwind.config.ts` with custom tokens:
   - Colors: black, white, gray-100/200/400/500, yellow (#FFE900), gold (#D1A63B), pastels (pink, lavender, mint, lemon, peach, error-bg), status colors (green, red, purple)
   - Spacing: 2, 4, 8, 14, 20, 24, 30, 90
   - Border Radius: none (0), sm (4px), md (8px), lg (12px), full (999px)
-- [ ] **Fonts:** Configure `next/font/local` with:
+- [x] **Fonts:** Configure `next/font/local` with:
   - Instrument Serif (Regular, Italic) → headings H1, H2
   - Akkurat LL Cyrillic (Thin → Black) → body, H3, H4, caps
   - Pixform → pixel text, Description uppercase
-- [ ] **Global CSS:** Define base styles, CSS variables, font-face declarations
-- [ ] **Git Commit:** `feat(core): setup design tokens and fonts`
+- [x] **Global CSS:** Define base styles, CSS variables, font-face declarations
+- [x] **Git Commit:** `feat(core): setup design tokens and fonts`
 
 ---
 
-## Phase 1.5: Component Sandbox
-- [ ] Create `/app/sandbox/page.tsx` — development playground for testing components
-- [ ] Setup component preview sections (Atoms, Molecules, Organisms)
-- [ ] Add interactive controls for component variants/states
-- [ ] **Git Commit:** `feat(sandbox): create component sandbox page`
+## Phase 1.5: Component Sandbox ✅
+- [x] Create `/app/sandbox/page.tsx` — development playground for testing components
+- [x] Setup component preview sections (Atoms, Molecules, Organisms)
+- [x] Add interactive controls for component variants/states
+- [x] **Git Commit:** `feat(sandbox): create component sandbox page`
 
 ---
 
-## Phase 2: Atoms (Base Components)
-- [ ] **Button (`btn`):**
+## Phase 2: Atoms (Base Components) ✅
+- [x] **Button (`btn`):**
   - CTA big (black pill, H2 text)
   - CTA small (black pill, pixel text)
   - Secondary (gray pill)
   - On Color (white pill)
   - Node (pink block, 4px radius)
-- [ ] **Avatar:** Circle 30×30
-- [ ] **Status:** Dot + label (green/red/purple/stopped variants)
-- [ ] **Icons:** play, more, arrow-down, close (16×16)
-- [ ] **Switch:** Toggle on/off state
-- [ ] **Flag:** Checkbox yes/no
-- [ ] **Tag:** Control (gray + X icon), Static (yellow)
-- [ ] **Input:** Text field with label
-- [ ] **TextArea:** Multiline with label
-- [ ] **Dropdown:** Default/on-color, filled/empty states
-- [ ] **Bar:** Progress bar (variable width)
-- [ ] **Graph:** Mini bar chart
-- [ ] **Error:** Error message block (peach bg, red text)
-- [ ] **Avatars:** Stacked avatar group (overlap -8px)
-- [ ] **Git Commit:** `feat(atoms): create core atom components`
+- [x] **Avatar:** Circle 30×30
+- [x] **Status:** Dot + label (green/red/purple/stopped variants)
+- [x] **Icons:** play, more, arrow-down, close (16×16) — используются PNG из `/assets/`
+- [x] **Switch:** Toggle on/off state
+- [x] **Flag:** Checkbox yes/no — используются PNG из `/assets/`
+- [x] **Tag:** Control (gray + X icon), Static (yellow) — добавлены размерности sm/default
+- [x] **Input:** Text field with label
+- [x] **TextArea:** Multiline with label
+- [x] **Dropdown:** Default/on-color, filled/empty states
+- [x] **Bar:** Progress bar — варианты: default, big, double (Green/Mint кружки)
+- [x] **Graph:** Mini bar chart
+- [x] **Error:** Error message block (peach bg, red text)
+- [x] **Avatars:** Stacked avatar group (overlap -8px)
+- [x] **NodeConnector:** In (gray) / Out (black) коннекторы для нод
+- [x] **Git Commit:** `feat(atoms): create core atom components`
 
 ---
 
-## Phase 3: Molecules (UI Components)
-- [ ] **Profile:** Long variant (avatar + name + role + status + bar), Short variant (compact)
-- [ ] **Node:** Automation node card (icon row + title + subtitle)
-- [ ] **Team:** Team card (name, people count, productivity bar, highlight, avatars)
-- [ ] **CampaignPreview:** Hiring card (title, status, stats grid 142/89/282/31/4)
-- [ ] **ProjectPreview:** Project card (description + tags)
-- [ ] **ExperiencePreview:** Job card (date, title, company, description)
-- [ ] **CardMetric:** Health card (title + graph + label)
-- [ ] **CardsMetrica:** Stat counter (title + H1 number + label)
-- [ ] **Notify:** Notification (mint bg, Pixform text)
-- [ ] **Attempt:** Salary attempt card (past/next variants)
-- [ ] **Git Commit:** `feat(molecules): create molecule components`
+## Phase 3: Molecules (UI Components) ✅
+- [x] **Profile:** Long variant (avatar + name + role + status + bar), Short variant (compact)
+- [x] **Node:** Automation node card (icon row + title + subtitle + In/Out коннекторы)
+- [x] **Team:** Team card (name, people count, double progress bar, highlight, avatars)
+- [x] **CampaignPreview:** Hiring card (title, status, stats grid 142/89/282/31/4)
+- [x] **ProjectPreview:** Project card (description + tags)
+- [x] **ExperiencePreview:** Job card (date, title, company, description)
+- [x] **CardMetric:** Health card (title + graph + label)
+- [x] **CardsMetrica:** Stat counter (title + H1 number + label)
+- [x] **Notify:** Notification (mint bg, Pixform text)
+- [x] **Attempt:** Salary attempt card (past/next variants)
+- [x] **Git Commit:** `feat(molecules): create molecule components`
 
 ---
 
-## Phase 4: Organisms (Layout & Complex UI)
-- [ ] **TopMenu:** Logo "Hired & Wired" + menu switches + Generate report btn + Profile/Logout
-- [ ] **SecondRow:** Back button + breadcrumbs / Builder variant (Back + Save + Deploy)
-- [ ] **Header:** TopMenu + SecondRow + Progress bar stages
-- [ ] **Kanban:** Pipeline columns (Applied/Screening/Interview/Offer)
-- [ ] **Task:** Task row (flag + title + error? + action btn)
-- [ ] **CardTop:** Hero profile card (yellow/gray, Cover Image bg, name, role, action buttons)
-- [ ] **MenuSwitch:** Tab switch (on/off border)
-- [ ] **Git Commit:** `feat(organisms): create organism components`
+## Phase 4: Organisms (Layout & Complex UI) ✅
+- [x] **TopMenu:** Logo "Hired & Wired" + MenuSwitch tabs + Generate report btn + Avatar/Logout
+- [x] **SecondRow:** Back button + breadcrumbs / Builder variant (Back + Save + Deploy)
+- [x] **Header:** TopMenu + SecondRow + Double progress bar stages
+- [x] **Kanban:** Pipeline columns (Applied/Screening/Interview/Offer) — с drag-and-drop
+- [x] **Task:** Task row (flag + title + error + action btn) — вертикальная компоновка
+- [x] **CardTop:** Hero profile card (yellow: dropdowns, gray: switch tabs, центрированный контент)
+- [x] **MenuSwitch:** Tab switch (on/off border)
+- [x] **Git Commit:** `feat(organisms): create organism components`
 
 ---
 
@@ -141,6 +142,9 @@
 |---|--------|---------|
 | 1 | **Cover Images** | Использовать напрямую из `/assets/Cover Image-*.jpg`. Применяются как hero-image на страницах сервиса и в карточках кандидатов. |
 | 2 | **Canvas Editor** | Кастомная реализация на canvas (без react-flow). |
-| 3 | **Icons** | Экспортировать кастомные SVG из Figma (play, more, arrow-down, close). |
+| 3 | **Icons** | Используем PNG иконки из `/assets/` (icon-play.png, icon-more.png, icon-arrow-down.png, icon-close.png). |
 | 4 | **Development Order** | Сначала Design System (atoms → molecules → organisms) с песочницей для тестирования, затем страницы по порядку. |
 | 5 | **Additional Pages** | Будут добавлены по мере получения макетов. |
+| 6 | **Progress Bar** | Используем паттерн из кружков (dot pattern) вместо сплошной полосы. Double вариант с Green/Mint цветами. |
+| 7 | **Avatars** | Файлы переименованы: avatar-katya.png, avatar-petya.png, avatar-dog.png. |
+| 8 | **Typography** | H1, H2, Description — font-weight: 400 (Regular). |
