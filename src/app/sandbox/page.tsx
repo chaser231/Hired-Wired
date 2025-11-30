@@ -17,6 +17,18 @@ import {
   Error,
   Avatars,
 } from "@/components/atoms";
+import {
+  Profile,
+  Node,
+  Team,
+  CampaignPreview,
+  ProjectPreview,
+  ExperiencePreview,
+  CardMetric,
+  CardsMetrica,
+  Notify,
+  Attempt,
+} from "@/components/molecules";
 
 export default function SandboxPage() {
   const [switchOn, setSwitchOn] = useState(true);
@@ -54,7 +66,7 @@ export default function SandboxPage() {
           <div className="flex flex-wrap gap-8 items-center p-6 bg-white rounded-lg">
             <div className="flex flex-col gap-2 items-center">
               <Avatar src="/assets/type=katya.png" />
-              <span className="text-caps text-gray-500">Single</span>
+              <span className="text-caps text-gray-500">Katya</span>
             </div>
             <div className="flex flex-col gap-2 items-center">
               <Avatar src="/assets/type=petya.png" />
@@ -183,7 +195,7 @@ export default function SandboxPage() {
         <div className="mb-12">
           <h3 className="text-h3 mb-6">Error</h3>
           <div className="p-6 bg-white rounded-lg">
-            <Error message="add more money for salary, you dumb ass" />
+            <Error message="add more money for salary" />
           </div>
         </div>
 
@@ -235,8 +247,132 @@ export default function SandboxPage() {
       {/* Molecules Section */}
       <section className="mb-16">
         <h2 className="text-h2 mb-8 pb-4 border-b border-gray-200">Molecules</h2>
-        <div className="p-6 bg-white rounded-lg">
-          <p className="text-grotesk text-gray-500">Coming soon...</p>
+
+        {/* Profile */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Profile</h3>
+          <div className="flex flex-col gap-4 p-6 bg-white rounded-lg">
+            <Profile 
+              variant="long"
+              name="Michael Lee"
+              role="senior frontend developer"
+              statusType="green"
+              progress={75}
+            />
+            <div className="flex gap-4">
+              <Profile 
+                variant="short"
+                name="Michael Lee"
+                role="senior frontend developer"
+              />
+              <Profile 
+                variant="short-outlined"
+                name="Anna Smith"
+                role="product manager"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Node */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Node</h3>
+          <div className="p-6 bg-white rounded-lg">
+            <Node title="Starting point" subtitle="more info" />
+          </div>
+        </div>
+
+        {/* Team */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Team</h3>
+          <div className="p-6 bg-gray-100 rounded-lg">
+            <Team 
+              name="Engineering team"
+              peopleCount={12}
+              productivity={91}
+              highlight="This is the week highlight text for the team card component"
+            />
+          </div>
+        </div>
+
+        {/* CampaignPreview */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Campaign Preview</h3>
+          <div className="p-6 bg-gray-100 rounded-lg">
+            <CampaignPreview 
+              title="Hiring Campaign"
+              statusType="green"
+              stats={{
+                applied: 142,
+                rejected: 89,
+                inProgress: 282,
+                finalRound: 31,
+                offersSent: 4,
+              }}
+            />
+          </div>
+        </div>
+
+        {/* ProjectPreview */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Project Preview</h3>
+          <div className="p-6 bg-white rounded-lg">
+            <ProjectPreview 
+              description="Building a scalable microservices architecture for the e-commerce platform"
+              tags={["React", "Node.js", "AWS", "Docker"]}
+            />
+          </div>
+        </div>
+
+        {/* ExperiencePreview */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Experience Preview</h3>
+          <div className="p-6 bg-white rounded-lg">
+            <ExperiencePreview 
+              dateRange="jan 2022 — nov 2024"
+              title="Senior Frontend Developer"
+              company="Google"
+              description="Led the development of the new Google Maps feature for indoor navigation"
+            />
+          </div>
+        </div>
+
+        {/* CardMetric & CardsMetrica */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Card Metric / Cards Metrica</h3>
+          <div className="flex gap-6 p-6 bg-gray-100 rounded-lg">
+            <CardMetric title="Health" label="stable" />
+            <CardsMetrica title="Productivity" value="91%" label="this week" />
+          </div>
+        </div>
+
+        {/* Notify */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Notify</h3>
+          <div className="p-6 bg-white rounded-lg">
+            <Notify message="New team member added successfully!" />
+          </div>
+        </div>
+
+        {/* Attempt */}
+        <div className="mb-12">
+          <h3 className="text-h3 mb-6">Attempt</h3>
+          <div className="p-6 bg-gray-100 rounded-lg">
+            <Attempt 
+              type="past"
+              label="Past attempt"
+              yourOffer={{
+                salary: "$120,000",
+                perks: ["Remote work", "Health insurance", "Stock options"],
+              }}
+              theirOffer={{
+                salary: "$140,000",
+                perks: ["Remote work", "Health insurance", "More equity"],
+              }}
+              statusType="red"
+              statusLabel="failed"
+            />
+          </div>
         </div>
       </section>
 
