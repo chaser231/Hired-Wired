@@ -150,3 +150,6 @@
 | 6 | **Progress Bar** | Используем паттерн из кружков (dot pattern) вместо сплошной полосы. Double вариант с Green/Mint цветами. |
 | 7 | **Avatars** | Файлы переименованы: avatar-katya.png, avatar-petya.png, avatar-dog.png. |
 | 8 | **Typography** | H1, H2, Description — font-weight: 400 (Regular). |
+| 9 | **All Teams Page Layout** | Точная структура из Figma: 830px ширина контента, 90px gap между секциями, Hero card 830x480px с Cover Image-3.jpg, 4 метрики в ряд (gap 4px), 6 team карточек по 413px (2 колонки). |
+| 10 | **MenuSwitch Style** | В topmenu используется белая border вместо border-bottom. text-grotesk 11px. |
+| 11 | **CardMetric Colors** | Health: pink-soft (#F5CFCA), Productivity: pink (#FAD5E7), Distribution: lavender (#DDD6EF), Hiring: yellow-green (#E0E2A4). |
