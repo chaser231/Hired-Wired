@@ -38,6 +38,10 @@ export default function AllTeamsPage() {
                 label="Campaigns" 
                 onClick={() => router.push("/campaigns")}
               />
+              <MenuSwitch 
+                label="Automations" 
+                onClick={() => router.push("/automation")}
+              />
             </div>
           </div>
 

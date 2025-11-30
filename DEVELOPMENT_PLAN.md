@@ -117,11 +117,12 @@
 - [x] Campaigns list page (`/campaigns`)
 - [x] **Git Commit:** `feat(pages): create hiring campaign page`
 
-### 6.5 Automation/Mail Editor Page (`/automation`)
-- [ ] Header with builder variant (Back + Save + Deploy)
-- [ ] Sidebar (Node library, Templates, Properties panel)
-- [ ] Canvas (drag-drop flow editor)
-- [ ] **Git Commit:** `feat(pages): create automation editor page`
+### 6.5 Automation/Mail Editor Page (`/automation`) ✅
+- [x] Header with builder variant (Back + Save + Deploy)
+- [x] Sidebar (Node library, Templates, Properties panel)
+- [x] Canvas (drag-drop flow editor)
+- [x] Automation flows list page (`/automation`)
+- [x] **Git Commit:** `feat(pages): create automation editor page`
 
 ---
 
