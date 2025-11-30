@@ -1,64 +1,120 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import { TopMenu, MenuSwitch } from "@/components/organisms";
+import { CardMetric, Team } from "@/components/molecules";
+import { useTeamsStore } from "@/stores";
+
+type TabType = "teams" | "templates";
+
+export default function AllTeamsPage() {
+  const [activeTab, setActiveTab] = useState<TabType>("teams");
+  const teams = useTeamsStore((state) => state.teams);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-gray-100">
+      {/* Top Navigation */}
+      <header className="px-[30px] border-b border-gray-200 bg-white">
+        <div className="flex items-center justify-between py-[14px]">
+          {/* Left: Logo + Tabs */}
+          <div className="flex items-center gap-[30px]">
+            <span className="text-h2 italic">Hired & Wired</span>
+            
+            {/* Menu Tabs */}
+            <div className="flex">
+              <MenuSwitch 
+                label="All teams" 
+                active={activeTab === "teams"}
+                onClick={() => setActiveTab("teams")}
+              />
+              <MenuSwitch 
+                label="All templates" 
+                active={activeTab === "templates"}
+                onClick={() => setActiveTab("templates")}
+              />
+            </div>
+          </div>
+
+          {/* Right: Actions */}
+          <div className="flex items-center gap-[14px]">
+            <button className="px-[20px] py-[8px] bg-gray-200 rounded-full text-pixel hover:bg-gray-300 transition-colors">
+              Generate report
+            </button>
+            <div className="flex items-center gap-[8px]">
+              <div className="w-[30px] h-[30px] rounded-full overflow-hidden bg-gray-200">
+                <img 
+                  src="/assets/avatar-katya.png" 
+                  alt="Profile" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <button className="text-pixel text-gray-500 hover:text-black transition-colors">
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="p-[30px]">
+        {activeTab === "teams" ? (
+          <>
+            {/* Metrics Row */}
+            <section className="mb-[30px]">
+              <div className="flex gap-[14px]">
+                <CardMetric 
+                  title="Health" 
+                  label="All people feeling fine"
+                  values={[85, 92]}
+                  className="flex-1 w-auto"
+                />
+                <CardMetric 
+                  title="Productivity" 
+                  label="Tasks completed on time"
+                  values={[78, 85]}
+                  className="flex-1 w-auto bg-lavender"
+                />
+                <CardMetric 
+                  title="Dedication" 
+                  label="Avg. hours per week"
+                  values={[70, 65]}
+                  className="flex-1 w-auto bg-pink"
+                />
+                <CardMetric 
+                  title="Hiring" 
+                  label="Active campaigns"
+                  values={[60, 80]}
+                  className="flex-1 w-auto bg-lemon"
+                />
+              </div>
+            </section>
+
+            {/* Teams Grid */}
+            <section>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[14px]">
+                {teams.map((team) => (
+                  <Team
+                    key={team.id}
+                    name={team.name}
+                    peopleCount={team.peopleCount}
+                    productivity={team.productivity}
+                    highlight={team.highlight}
+                    avatars={team.avatars}
+                  />
+                ))}
+              </div>
+            </section>
+          </>
+        ) : (
+          /* Templates Tab Content */
+          <section className="flex flex-col items-center justify-center min-h-[400px] bg-white rounded-lg">
+            <span className="text-h2 text-gray-400 mb-[14px]">Templates</span>
+            <span className="text-pixel text-gray-500">
+              HR templates and workflows will appear here
+            </span>
+          </section>
+        )}
       </main>
     </div>
   );

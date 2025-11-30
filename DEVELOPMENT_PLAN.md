@@ -89,11 +89,11 @@
 
 ## Phase 6: Page Assembly
 
-### 6.1 All Teams Page (`/`)
-- [ ] Header (topmenu + tabs: All teams / All templates)
-- [ ] Metrics row (Health, Productivity, Dedication, Hiring)
-- [ ] Teams grid (team cards)
-- [ ] **Git Commit:** `feat(pages): create all teams page`
+### 6.1 All Teams Page (`/`) ✅
+- [x] Header (topmenu + tabs: All teams / All templates)
+- [x] Metrics row (Health, Productivity, Dedication, Hiring)
+- [x] Teams grid (team cards)
+- [x] **Git Commit:** `feat(pages): create all teams page`
 
 ### 6.2 Team Detail Page (`/team/[id]`)
 - [ ] Header with breadcrumbs
