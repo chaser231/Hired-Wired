@@ -86,7 +86,7 @@ export function Bar({
     );
   }
   
-  // Стандартные варианты (default / big)
+  // Стандартные варианты (default / big) - используют green/mint цвета
   return (
     <div 
       ref={containerRef}
@@ -98,8 +98,8 @@ export function Bar({
           key={index}
           className={`rounded-full flex-shrink-0 flex-grow-0 transition-colors duration-200 ${
             index < filledDots 
-              ? "bg-white" 
-              : "bg-white/30"
+              ? "bg-green" 
+              : "bg-mint"
           }`}
           style={{ 
             width: `${dotSize}px`, 
