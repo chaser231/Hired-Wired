@@ -126,6 +126,19 @@
 
 ---
 
+## Phase 7.5: All Teams Page Refinements ✅
+- [x] **Hero Image Fullscreen:** Cover Image занимает весь экран (не только карточку)
+- [x] **Graph Bars Colors:** Полоски графиков в тон карточки (более светлые оттенки)
+- [x] **Progress Bar Adaptive:** Прогресс бар адаптивный с ResizeObserver, не выходит за пределы
+- [x] **Header Actions:** Generate report активная (alert), Profile → /profile, Log out → /login
+- [x] **Add Team Modal:** Модалка для создания новой команды с формой
+- [x] **Section Switch:** Overview/Employees/Report переключает контент на странице
+- [x] **Login Page:** Страница авторизации /login
+- [x] **Profile Page:** Страница профиля /profile
+- [x] **Git Commit:** `feat(all-teams): refine page layout and functionality`
+
+---
+
 ## Phase 7: Polish & Final Touches ✅
 - [x] **Typography Check:** Verify Serif/Sans/Pixel usage consistency
 - [x] **Hover States:** Add transitions for buttons, cards, links (scale, shadow, opacity)
