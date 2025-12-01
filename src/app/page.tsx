@@ -112,30 +112,32 @@ export default function AllTeamsPage() {
               add team
             </Button>
           </div>
-
-          {/* Switch Group - at bottom of hero */}
-          <div className="absolute bottom-[60px] flex gap-[2px] p-[4px] bg-yellow rounded-md">
-            <Switch
-              checked={viewTab === "overview"}
-              onChange={() => handleViewTabChange("overview")}
-              label="Overview"
-            />
-            <Switch
-              checked={viewTab === "employees"}
-              onChange={() => handleViewTabChange("employees")}
-              label="Employees"
-            />
-            <Switch
-              checked={viewTab === "report"}
-              onChange={() => handleViewTabChange("report")}
-              label="Report"
-            />
-          </div>
         </div>
       </section>
 
-      {/* Main Content - Below Hero */}
-      <main className="w-full flex flex-col items-center gap-[4px] pb-[84px] -mt-[100px] relative z-10">
+      {/* Switch Group - Between hero and content */}
+      <div className="w-full flex justify-center py-[30px] bg-gray-100">
+        <div className="flex gap-[2px] p-[4px] bg-yellow rounded-md">
+          <Switch
+            checked={viewTab === "overview"}
+            onChange={() => handleViewTabChange("overview")}
+            label="Overview"
+          />
+          <Switch
+            checked={viewTab === "employees"}
+            onChange={() => handleViewTabChange("employees")}
+            label="Employees"
+          />
+          <Switch
+            checked={viewTab === "report"}
+            onChange={() => handleViewTabChange("report")}
+            label="Report"
+          />
+        </div>
+      </div>
+
+      {/* Main Content - Below Switch */}
+      <main className="w-full flex flex-col items-center gap-[4px] pb-[84px]">
         <div className="w-[830px] flex flex-col gap-[4px]">
           {activeTab === "teams" ? (
             <>
